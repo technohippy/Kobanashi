@@ -1,0 +1,61 @@
+「」
+『』
+
+!リテラル
+:文字:#あ
+:文字列:『文字列』
+:数値:1 0.1
+:シンボル:<シンボル>
+:定数:<<定数>>
+
+!その他文法要素
+:ブロック:「処理」
+:ブロック:「(変数・変数・変数) 処理」
+:配列:要素・要素・要素
+:ハッシュ:キー:値・キー:値
+:コメント:(^_^) ＜コメント
+
+!メソッド呼び出し
+[] whileTrue: []
+[] が本当の間: []
+
+[] ifTrue: []
+[] が本当なら: []
+
+
+
+'HelloSmalltalk' copyFrom: 2 to: 5.
+『こんにちは世界』を、２から、３までコピーする。
+
+copyFrom:to:
+を、から、までコピーする。
+
+'HelloSmalltalk' copyReplaceFrom: 2 to: 5 with: 'appy'
+『こんにちは世界』を、２から、３まで、'appy'でコピーする
+
+copyReplaceFrom:to:with:
+を、から、まで、でコピーする
+
+#($a $b $c) at: 2
+#あ・#い・#う の、２つ目。
+
+at:
+の、つ目
+
+Transcript show: 'HelloWorld'
+メモ に、『こんにちは世界』を表示する。
+
+Object subclass: #Account
+	instanceVariableNames: 'id money'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'BankApplication'
+<<もの>> の亜種として、 <アカウント> を作り、『ユーザー番号 金額』をその個体の性質、『』をその種の性質、『銀行アプリケーション』をそのカテゴリとする。
+
+<<アカウント>> で、「(引数１・引数２) 引数１ を表示する。引数２ を表示する」をメソッド、<メソッド名> として定義する。
+
+hanako _ Person newWith: 'hanako'.
+<<人間>> を、『花子』で初期化する。それを、花子 と呼ぶ。
+
+3 even
+3 は偶数？

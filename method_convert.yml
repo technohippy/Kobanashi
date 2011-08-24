@@ -1,0 +1,403 @@
+# kobanashi : 日本語メソッド名
+# ruby      : Ruby でのメソッド名
+# key_type  : 日本語メソッド名が文字列か正規表現か (String, Regexp)
+# add_bind  : 通常の引数の後にバインド変数を追加するかどうか (true, false)
+# use_block : ブロックとして引数を渡すかどうか。&block で渡されないものをtrueに設定しておく (true, false)
+
+# 都合によりサブクラスはスーパークラスよりも先に定義すること
+
+# クラスをキーに持つハッシュではなく配列になっているのは、継承関係のあるクラスで
+# 子クラスを先にチェックしたいため (ハッシュだとチェックの順番が保証できない)
+
+-
+  String :
+    -
+      kobanashi : "の、番目"
+      ruby      : "[]"
+      key_type  : String
+      add_bind  : false
+    -
+      kobanashi : "に、を繋ぐ"
+      ruby      : "+"
+      key_type  : String
+      add_bind  : false
+    -
+      kobanashi : "と、の連結"
+      ruby      : "+"
+      key_type  : String
+      add_bind  : false
+    -
+      kobanashi : "は、を含む？"
+      ruby      : include?
+      key_type  : String
+      add_bind  : false
+    -
+      kobanashi : "の、番目に、を挿入する"
+      ruby      : insert
+      key_type  : String
+      add_bind  : false
+    -
+      kobanashi : "の文字数"
+      ruby      : length
+      key_type  : String
+      add_bind  : false
+    -
+      kobanashi : "の改行を除く！"
+      ruby      : chomp!
+      key_type  : String
+      add_bind  : false
+    -
+      kobanashi : "を数値に変換する"
+      ruby      : to_i
+      key_type  : String
+      add_bind  : false
+
+-
+  Regexp :
+    -
+      kobanashi : "に、はマッチするか？"
+      ruby      : "=~"
+      key_type  : String
+      add_bind  : false
+
+-
+  Integer :
+    -
+      kobanashi : "回、を繰り返す"
+      ruby      : times
+      key_type  : String
+      add_bind  : false
+      use_block : true
+
+-
+  Numeric :
+    -
+      kobanashi : "(に|と)、を足す"
+      ruby      : "+"
+      key_type  : Regexp
+      add_bind  : false
+    -
+      kobanashi : "と、の和"
+      ruby      : "+"
+      key_type  : String
+      add_bind  : false
+    -
+      kobanashi : "から、を引く"
+      ruby      : "-"
+      key_type  : String
+      add_bind  : false
+    -
+      kobanashi : "と、の差"
+      ruby      : "-"
+      key_type  : String
+      add_bind  : false
+    -
+      kobanashi : "(に|と)、を掛ける"
+      ruby      : "*"
+      key_type  : Regexp
+      add_bind  : false
+    -
+      kobanashi : "で、を割る"
+      ruby      : "/"
+      key_type  : String
+      add_bind  : false
+    -
+      kobanashi : "が、より小さい"
+      ruby      : "<"
+      key_type  : String
+      add_bind  : false
+    -
+      kobanashi : "が、以下"
+      ruby      : "<="
+      key_type  : String
+      add_bind  : false
+    -
+      kobanashi : "が、より大きい"
+      ruby      : ">"
+      key_type  : String
+      add_bind  : false
+    -
+      kobanashi : "が、以上"
+      ruby      : ">="
+      key_type  : String
+      add_bind  : false
+
+-
+  Array :
+    -
+      kobanashi : "の、番目"
+      ruby      : "[]"
+      key_type  : String
+      add_bind  : false
+    -
+      kobanashi : "のいずれか"
+      ruby      : anyone
+      key_type  : String
+      add_bind  : false
+    -
+      kobanashi : "に、が含まれる？"
+      ruby      : include?
+      key_type  : String
+      add_bind  : false
+
+-
+  Hash :
+    -
+      kobanashi : "の、の値"
+      ruby      : "[]"
+      key_type  : String
+      add_bind  : false
+
+-
+  TrueClass :
+    -
+      kobanashi : "が本当なら、を実行する"
+      ruby      : "if_true"
+      key_type  : String
+      add_bind  : false
+    -
+      kobanashi : "が誤りなら、を実行する"
+      ruby      : "if_false"
+      key_type  : String
+      add_bind  : false
+    -
+      kobanashi : "が本当なら、を実行して誤りなら、を実行する"
+      ruby      : "if_true_else"
+      key_type  : String
+      add_bind  : false
+    -
+      kobanashi : "が誤りなら、を実行して本当なら、を実行する"
+      ruby      : "if_false_else"
+      key_type  : String
+      add_bind  : false
+    -
+      kobanashi : "かつ、が成り立つ"
+      ruby      : "&"
+      key_type  : String
+      add_bind  : false
+    -
+      kobanashi : "または、が成り立つ"
+      ruby      : "|"
+      key_type  : String
+      add_bind  : false
+
+-
+  FalseClass :
+    -
+      kobanashi : "が本当なら、を実行する"
+      ruby      : "if_true"
+      key_type  : String
+      add_bind  : false
+    -
+      kobanashi : "なら、を実行する"
+      ruby      : "if_true"
+      key_type  : String
+      add_bind  : false
+    -
+      kobanashi : "が誤りなら、を実行する"
+      ruby      : "if_false"
+      key_type  : String
+      add_bind  : false
+    -
+      kobanashi : "でないなら、を実行する"
+      ruby      : "if_false"
+      key_type  : String
+      add_bind  : false
+    -
+      kobanashi : "が本当なら、を実行して誤りなら、を実行する"
+      ruby      : "if_true_else"
+      key_type  : String
+      add_bind  : false
+    -
+      kobanashi : "が誤りなら、を実行して本当なら、を実行する"
+      ruby      : "if_false_else"
+      key_type  : String
+      add_bind  : false
+    -
+      kobanashi : "かつ、が成り立つ"
+      ruby      : "&"
+      key_type  : String
+      add_bind  : false
+    -
+      kobanashi : "または、が成り立つ"
+      ruby      : "|"
+      key_type  : String
+      add_bind  : false
+
+-
+  NilClass :
+    -
+      kobanashi : "が本当なら、を実行する"
+      ruby      : "if_true"
+      key_type  : String
+      add_bind  : false
+    -
+      kobanashi : "なら、を実行する"
+      ruby      : "if_true"
+      key_type  : String
+      add_bind  : false
+    -
+      kobanashi : "が誤りなら、を実行する"
+      ruby      : "if_false"
+      key_type  : String
+      add_bind  : false
+    -
+      kobanashi : "でないなら、を実行する"
+      ruby      : "if_false"
+      key_type  : String
+      add_bind  : false
+    -
+      kobanashi : "が本当なら、を実行して誤りなら、を実行する"
+      ruby      : "if_true_else"
+      key_type  : String
+      add_bind  : false
+    -
+      kobanashi : "が誤りなら、を実行して本当なら、を実行する"
+      ruby      : "if_false_else"
+      key_type  : String
+      add_bind  : false
+
+-
+  KobanashiClass :
+    -
+      kobanashi : "の亜種として、を作(り、をその個体の性質(、をその種の性質(、をそのカテゴリ)?)?とす)?る"
+      ruby      : define_subclass
+      key_type  : Regexp
+      add_bind  : false
+    -
+      kobanashi : "の一種として、を作(り、をその個体の性質(、をその種の性質(、をそのカテゴリ)?)?とす)?る"
+      ruby      : define_subclass
+      key_type  : Regexp
+      add_bind  : false
+    -
+      kobanashi : "にメソッド、を定義し、を処理する"
+      ruby      : define_instance_method
+      key_type  : String
+      add_bind  : false
+    -
+      kobanashi : "の種にメソッド、を定義し、を処理する"
+      ruby      : define_class_method
+      key_type  : String
+      add_bind  : false
+    -
+      kobanashi : "を生成する"
+      ruby      : new_instance
+      key_type  : String
+      add_bind  : false
+    -
+      kobanashi : "の実体"
+      ruby      : new_instance
+      key_type  : String
+      add_bind  : false
+
+-
+  KobanashiObject :
+    -
+      kobanashi : "の種名"
+      ruby      : class_name
+      key_type  : String
+      add_bind  : false
+    -
+      kobanashi : "の種"
+      ruby      : klass
+      key_type  : String
+      add_bind  : false
+
+-
+  KobanashiBlock :
+    -
+      # を実行する。
+      # を、で実行する。
+      # を、と、で実行する。
+      # を、と、と、で実行する
+      # 以下略
+      kobanashi : "を(、(と、)*で)?実行する" 
+      ruby      : call
+      key_type  : Regexp
+      add_bind  : false
+    -
+      kobanashi : "が本当なら、を実行する"
+      ruby      : "if_true"
+      key_type  : String
+      add_bind  : false
+    -
+      kobanashi : "なら、を実行する"
+      ruby      : "if_true"
+      key_type  : String
+      add_bind  : false
+    -
+      kobanashi : "が誤りなら、を実行する"
+      ruby      : "if_false"
+      key_type  : String
+      add_bind  : false
+    -
+      kobanashi : "でないなら、を実行する"
+      ruby      : "if_false"
+      key_type  : String
+      add_bind  : false
+    -
+      kobanashi : "が本当なら、を実行して誤りなら、を実行する"
+      ruby      : "if_true_else"
+      key_type  : String
+      add_bind  : false
+    -
+      kobanashi : "なら、そうじゃないなら、を実行する"
+      ruby      : "if_true_else"
+      key_type  : String
+      add_bind  : false
+    -
+      kobanashi : "なら、そうじゃないとき、を実行する"
+      ruby      : "if_true_else"
+      key_type  : String
+      add_bind  : false
+    -
+      kobanashi : "が誤りなら、を実行して本当なら、を実行する"
+      ruby      : "if_false_else"
+      key_type  : String
+      add_bind  : false
+    -
+      kobanashi : "が本当の間、を繰り返す"
+      ruby      : "while_true"
+      key_type  : String
+      add_bind  : false
+    -
+      kobanashi : "なら、を繰り返す"
+      ruby      : "while_true"
+      key_type  : String
+      add_bind  : false
+    -
+      kobanashi : "が誤りの間、を繰り返す"
+      ruby      : "while_false"
+      key_type  : String
+      add_bind  : false
+    -
+      kobanashi : "まで、を繰り返す"
+      ruby      : "while_false"
+      key_type  : String
+      add_bind  : false
+
+-
+  Object :
+    -
+      kobanashi : "が、(に|と)等しい" 
+      ruby      : "=="
+      key_type  : Regexp
+      add_bind  : false
+    -
+      kobanashi : "の文字列表現" 
+      ruby      : to_s
+      key_type  : String
+      add_bind  : false
+    -
+      kobanashi : "を表示する" 
+      ruby      : print_on_stdout
+      key_type  : String
+      add_bind  : false
+
+-
+  IO :
+    -
+      kobanashi : "から読み込む" 
+      ruby      : gets
+      key_type  : String
+      add_bind  : false
